@@ -1,9 +1,9 @@
 ---
-title: "R-Ladies Themed<br>xaringan Template"
-subtitle: "Presentation subtitle"
-author: "R-Ladies Global"
-institute: "Your Institute"
-date: "March 16th, 2021"
+title: "rgee:<br>Acessando a API do Google Earth Engine"
+subtitle: ""
+author: "Tainá Rocha"
+institute: "Programa de Pesquisa em Biodiversidade"
+date: '`r format(Sys.Date(), "%d/%m/%Y")`'
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -33,14 +33,14 @@ knitr::opts_chunk$set(dpi = 300,            # ensures high resolution images
                       error = FALSE)        # FALSE: Suppresses error messages
 ```
 
-class: title-slide, center, middle, inverse
-background-image: url(img/PurpleSky.jpg)
-background-position: bottom
-background-size: cover
+class: title-slide, center, bottom, inverse
+background-image: url(img/rgee-hex.png)
+background-position: top
+background-size: 40%
 
 # `r rmarkdown::metadata$title`
 
-Photo by [Vincentiu Solomon](https://unsplash.com/@vincentiu)
+Tainá Rocha
 
 ???
 This slide uses:
@@ -86,24 +86,29 @@ This slide uses:
 - an image inserted with html
 
 ---
+# Roteiro
+
+- Google Earth Engine (GEE) : infraestrutra, catálago de dados
+
+- rgee: instalções, funções 
+
+
+- Estudos de caso: coletando os dados , x, y
+
+
+---
 
 .left-column[
-# R-Ladies Global
+# GEE
+
 ]
 
 .right-column[
 
-## Mission 
-
-R-Ladies is a worldwide organization whose mission is to promote Gender Diversity in the R community.
-
-The R community suffers from an underrepresentation of minority genders (including but not limited to cis/trans women, trans men, non-binary, genderqueer, agender) in every role and area of participation, whether as leaders, package developers, conference speakers, conference participants, educators, or users (see recent stats).
-
-
-.footnote[
-
-----
-Original source: https://rladies.org/about-us]
+```{r url 1, echo=FALSE}
+knitr::include_url("https://earthengine.google.com/", height = 500)
+```
+.footnote[https://developers.google.com/earth-engine/datasets/]
 ]
 
 ???
@@ -111,6 +116,19 @@ This slide uses:
 - the `.left-column[]` and `.right-column[]` classes
 - a horizontal bar
 - the `.footnote[]` class
+---
+.left-column[
+# GEE
+
+]
+
+.right-column[
+
+#### Catálago de dados
+
+```{r url 1, echo=FALSE}
+knitr::include_url("https://developers.google.com/earth-engine/datasets", height = 500)
+```
 
 ---
 # Making lists and emphasizing text
