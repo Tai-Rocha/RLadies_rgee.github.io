@@ -90,7 +90,7 @@ This slide uses:
 
 - Google Earth Engine (GEE) : infraestrutra, catálago de dados
 
-- rgee: instalções, funções 
+- rgee: fluxo de trabalho, instalções, funções 
 
 
 - Estudos de caso: coletando os dados , x, y
@@ -176,7 +176,7 @@ knitr::include_graphics("img/wf_rgee.png")
 - Esse aqui é fluxo de trabalho do rgee. E resumidamente, o rgee feito em R, conversa muito bem com os principais pacotes R de análises espaciais , que ele chama aqui de ecossistema espacial R. Mas o rgee consegue também conversar com API Python do Earth Engine, graças ao pacote reticulate, que traduz tudo o que é feito no rgee, que na verdade são requisições feitas no rgee que o reticulate traduz para a API python e API por sua vez transforma essa requisição em um JSON que é o formato aceito aqui na plataforma Earth Engine . 
 
 ---
-# Making lists and emphasizing text
+### Requistos para o uso do GEE e rgee
 
 --
 
