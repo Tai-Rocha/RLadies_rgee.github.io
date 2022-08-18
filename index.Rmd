@@ -95,6 +95,11 @@ This slide uses:
 
 - Estudos de caso: coletando os dados , x, y
 
+???
+
+- Vou falar  mostrar o que é/ ou do que se trata Google Earth Engine. Mostrando de forma geral a infraestrutura, o catalágo de dados.
+- Depois vou mostrar o pacote rgee. Começando pela instalação que não é algo tão trivial, tem alguns requisitos. Mas também não é algo díficl de outro mundo. Mostraei a sintaxe do pacote. 
+- Finalizo mostrando estudos de caso
 
 ---
 
@@ -105,30 +110,70 @@ This slide uses:
 
 .right-column[
 
-```{r url 1, echo=FALSE}
+```{r url homepage GEE, echo=FALSE}
 knitr::include_url("https://earthengine.google.com/", height = 500)
 ```
+
 .footnote[https://developers.google.com/earth-engine/datasets/]
 ]
 
 ???
-This slide uses:
-- the `.left-column[]` and `.right-column[]` classes
-- a horizontal bar
-- the `.footnote[]` class
+
+- O GEE é dos serviçoes do google, é uma plataforma que além de hospedar dados geoespaciais, oferece uma infraesturtura para análise desses dados. 
+- Essa é a página inicial do GEE e você encontra várias informações interessantes,sobre como funciona essa infraestrutura. 
+- E o  grande potencial da plataforma, pelo menos até agora é possibilidade de acessar gratutitamente um serviço de alta pefomance, isso pq além de acessar gratuitamente os dados que estão estão cada vez mais em alta resolução, você consegue realizar análises de alta complexidade que requer poder de processamento. E agora eu volto para os slides.
+- Clicando aqui vocês são direcionados para a página do catálogo de dados, onde você podem acessar os mais diferentes tipos de dados, ou procurar por algum por outros dados. Enfim, é uma das seções que eu mais utilizo.
+
 ---
-.left-column[
-# GEE
+### Volume de dados | Resolução de dados -> Demanda por processamento de alta perfomance 
 
-]
-
-.right-column[
-
-#### Catálago de dados
-
-```{r url 1, echo=FALSE}
-knitr::include_url("https://developers.google.com/earth-engine/datasets", height = 500)
+```{r res, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("img/res.png")
 ```
+???
+- Pra exemplificar isso essa figura mostra dados to tipo raster, dados matricias. E Basicamente é uma imagem composta por pixeis, onde cade pixel carrega uma informação, nesse caso aqui é informaçõa de temperatura, ou seja eu tenho valores de temperatura para cada pixel.  E numa resolução baixa/grosseira os pixeis são maiores, mas estão menor quantidade, ou seja eu vou ter poucos valores para serem analisados ou processados. Já um dados em alta resolução número de pixeis aumenta exponencialmente, e aí a gente passa a ter muito valores para analisar e processar.... o que gera uma demanda por alta perfomance. E daí a importância da plataforma como Engine que te oferece gratuitamente essa infraestrutura.
+
+---
+### Infraestrutura do GEE - JavaScript ou Phyton 
+
+--
+```{r cejs, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("img/cejs.png")
+```
+.footnote[https://code.earthengine.google.com/"]
+???
+Contudo, a google disponibiliza este serviço em Javascript ou Phyton... Na verdade o editor próprio da plataforma engine e em JS. E isso acaba gerando alguma restrição para quem não tem habilidade com essas linguagens.
+
+---
+class: middle 
+background-image: url(img/rgee-hex.png)
+background-position: 50% 5%
+background-size: 5%
+
+
+```{r paper, echo=FALSE}
+knitr::include_url("https://www.theoj.org/joss-papers/joss.02272/10.21105.joss.02272.pdf", height = 450)
+
+```
+???
+- E foi assim que esse grupo de pesquisadores de diferentes departamentos criaram a alternativa em R para o acesso ao Google Earth Engine. Para nossa sorte. 
+
+- Aqui nesse artigo vocês econtram várias informções sobre o rgee. E o pacote também já está no cran. 
+
+---
+class: top, center
+
+### Fluxo de Trabalho do rgee
+<br>
+<br>
+<br>
+<br>
+```{r workflow, echo=FALSE, out.width="100%", fig.align='center'}
+knitr::include_graphics("img/wf_rgee.png")
+```
+.footnote[https://r-spatial.github.io/rgee/"]
+???
+- Esse aqui é fluxo de trabalho do rgee. E resumidamente, o rgee feito em R, conversa muito bem com os principais pacotes R de análises espaciais , que ele chama aqui de ecossistema espacial R. Mas o rgee consegue também conversar com API Python do Earth Engine, graças ao pacote reticulate, que traduz tudo o que é feito no rgee, que na verdade são requisições feitas no rgee que o reticulate traduz para a API python e API por sua vez transforma essa requisição em um JSON que é o formato aceito aqui na plataforma Earth Engine . 
 
 ---
 # Making lists and emphasizing text
