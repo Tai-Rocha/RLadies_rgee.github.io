@@ -137,22 +137,26 @@ knitr::include_graphics("img/res.png")
 ### Infraestrutura do GEE - JavaScript ou Phyton 
 
 --
-```{r cejs, echo=FALSE, out.width="100%", fig.align="center"}
+```{r js_py, echo=FALSE, out.width="70%", fig.align="center"}
+knitr::include_graphics("img/js_py.png")
+```
+--
+Code editor : https://code.earthengine.google.com/
+```{r cejs, echo=FALSE, out.width="70%", fig.align="center"}
 knitr::include_graphics("img/cejs.png")
 ```
-.footnote[https://code.earthengine.google.com/"]
 ???
 Contudo, a google disponibiliza este serviço em Javascript ou Phyton... Na verdade o editor próprio da plataforma engine e em JS. E isso acaba gerando alguma restrição para quem não tem habilidade com essas linguagens.
 
 ---
-class: middle 
-background-image: url(img/rgee-hex.png)
-background-position: 50% 5%
-background-size: 5%
+### Infraestrutura do GEE - JavaScript ou Phyton 
 
-
+```{r R, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("img/R_option.png")
+```
+--
 ```{r paper, echo=FALSE}
-knitr::include_url("https://www.theoj.org/joss-papers/joss.02272/10.21105.joss.02272.pdf", height = 450)
+knitr::include_url("https://www.theoj.org/joss-papers/joss.02272/10.21105.joss.02272.pdf", height = 350)
 
 ```
 ???
@@ -176,47 +180,53 @@ knitr::include_graphics("img/wf_rgee.png")
 - Esse aqui é fluxo de trabalho do rgee. E resumidamente, o rgee feito em R, conversa muito bem com os principais pacotes R de análises espaciais , que ele chama aqui de ecossistema espacial R. Mas o rgee consegue também conversar com API Python do Earth Engine, graças ao pacote reticulate, que traduz tudo o que é feito no rgee, que na verdade são requisições feitas no rgee que o reticulate traduz para a API python e API por sua vez transforma essa requisição em um JSON que é o formato aceito aqui na plataforma Earth Engine . 
 
 ---
-### Requistos para o uso do GEE e rgee
+### Requistos para o uso do GEE e rgee :
+<br>
+<br>
 
 --
 
-The R-Ladies Community has:
+Conta google (com o Earth Engine ativado)
 
 --
 
-* 85,144 members
+* https://www.google.com/intl/pt-BR/account/about/
+
+* https://earthengine.google.com/
 
 --
 
-* Across 56 countries
+Python >= v3.5
 
 --
 
-* and 198 chapters worldwide
+* [Windows](https://www.python.org/downloads/windows/)
+
+* [Mac](https://www.python.org/downloads/macos/)
 
 --
 
+EarthEngine Python API - Python package*
 
------
+---
+### Referências
 
-And with the help of Markdown you can write text in **bold** and _italics_
+- Aybar, C., Wu, Q., Bautista, L., Yali, R., & Barja, A. (2020). rgee: An R package for interacting with Google Earth Engine. Journal of Open Source Software, 5(51), 2272.
 
---
+- [Documentação](https://cran.r-project.org/web/packages/rgee/vignettes/rgee01.html)
 
-1. And make numbered lists
-1. like this one
+- [Tutorial](http://www.css.cornell.edu/faculty/dgr2/_static/files/R_html/ex_rgee.html)
 
-.footnote[
-These numbers come from the [Shiny R Community Explorer](https://benubah.github.io/r-community-explorer/rladies.html) developed by Ben Ubah
-]
+- [Repositório](https://github.com/r-spatial/rgee)
 
+- [rgeeExtra](https://r-earthengine.com/rgeeExtra/), extensão para o rgee 
+
+- [rgee examples](https://csaybar.github.io/rgee-examples/)
+
+- [Código](https://github.com/Tai-Rocha/VI_SER_talk.github.io/blob/main/R/rgee_exemplos.R),estudos de caso
 ???
-This slide uses:
-- bullet list with `*`
-- incremental slides divided by `--`
-- numbered list with `1.`
-- a horizontal bar
-- the `.footnote[]` class
+ - Nas referências eu deixei vários conteúdos com informações mais detalhadas.
+ - E agora eu vou pro R , mostrar um pouco o que dá pra fazer com o rgee.as
 
 ---
 # Inserting images
