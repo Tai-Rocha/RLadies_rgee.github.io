@@ -215,6 +215,8 @@ EarthEngine Python API - Python package*
 
 - [Documentação](https://cran.r-project.org/web/packages/rgee/vignettes/rgee01.html)
 
+- [Instalações](https://r-spatial.github.io/rgee/articles/rgee01.html#installation)
+
 - [Tutorial](http://www.css.cornell.edu/faculty/dgr2/_static/files/R_html/ex_rgee.html)
 
 - [Repositório](https://github.com/r-spatial/rgee)
