@@ -51,41 +51,6 @@ This slide uses:
   - background-size: cover
 
 ---
-class: inverse, middle, center
-
-<img style="border-radius: 50%;" 
-src="img/RLadiesGlobal.png"
-width="150px"
-alt="R-Ladies logo"
-/>
-
-# R-Ladies Global 
-
-[`r fontawesome::fa("link", a11y = "sem", fill = "#FFFFFF")` rladies.org](https://rladies.org)<br/>
-[`r fontawesome::fa("twitter", a11y = "sem", fill = "#FFFFFF")` @RLadiesGlobal](https://twitter.com/rladiesglobal)<br/>
-[`r fontawesome::fa("paper-plane", a11y = "sem", fill = "#FFFFFF")` info@rladies.org](mailto:info@rladies.org)<br>
-[`r fontawesome::fa("slack", a11y = "sem", fill = "#FFFFFF")` Join the Slack](https://rladies-community-slack.herokuapp.com/)
-
-???
-Hello! My name is R-Ladies Global and I'm excited to be here to help promote gender diversity in the R community.
-
-This slide uses:
-- `rmarkdown::metadata` to access YAML metadata
-- icons from the fontawesome package with the `ally = "sem"` (semantic attribute) accessibility feature.
-- image inserted using html code and including the alternative text attribute
-
---
-
-If you like this R-Ladies themed xaringan template, you can copy it to your computer: **usethis::use_course("spcanelon/RLadies-xaringan-template")**
-
-And learn how to deploy xaringan slides to GitHub Pages in this blog post:<br> [silvia.rbind.io/2021-03-16-deploying-xaringan-slides](https://silvia.rbind.io/2021-03-16-deploying-xaringan-slides)
-
-???
-This slide uses:
-- the `inverse`, `middle`, and `center` slide classes
-- an image inserted with html
-
----
 # Roteiro
 
 - Google Earth Engine (GEE) : infraestrutra, catálago de dados
@@ -231,127 +196,36 @@ EarthEngine Python API - Python package*
  - E agora eu vou pro R , mostrar um pouco o que dá pra fazer com o rgee.as
 
 ---
-# Inserting images
-
-```{r, echo = TRUE, fig.alt="World map with countries that have R-Ladies chapters highlighted in purple"}
-knitr::include_graphics("img/RLadiesMap.png")
-```
-
---
-
-> Note: You can use the `fig.alt` code chunk option to add alternative text to your images, that way they are accessible to screen reader users:
-- In code chunk: `{r, fig.alt = "<descriptive alt text>"}`.
-- Read more about this in [{knitr} NEWS.md](https://github.com/yihui/knitr/blob/master/NEWS.md#new-features-1)
-
-???
-This slide uses:
-- an image inserted with `knitr::include_graphics()`
-- the `fig.alt =` code chunk option for alternative text
-
----
-# Tables and quotes
-
-### Table
-
-.pull-left[
-
-`palmerpenguins::penguins`
-
-The `penguins` dataset contains size measurements for adult penguins nesting near Palmer Station in Antarctica.
-
-Measurements like `body_mass_g`
-]
-
-.pull-right[
-
-```{r}
-palmerpenguins::penguins %>%
-  select(species, island, body_mass_g) %>%
-  arrange(body_mass_g) %>%
-  head() %>%
-  knitr::kable(format = 'html')
-```
-]
-
-???
-This slide uses:
-- the `.pull-left[]` and `.pull-right[]` classes
-- an R code chunk to produce the html table
-
---
-
-### Quote
-
-> You can read more about the `palmerpenguins` data package authored and maintained by Allison Horst at [allisonhorst.github.io/palmerpenguins](https://allisonhorst.github.io/palmerpenguins/)
-
-???
-- a quote with `>`
-
----
-# Highlighting code
-
-`> This is what inline code looks like`
-
-You can highlight lines of code within code chunks using `#<<`:
-
-### Code
-
-```r
-palmerpenguins::penguins %>%
-  ggplot(aes(x = island, y = body_mass_g)) +
-  geom_boxplot(aes(fill = island))               #<<
-```
-
-### Output
-
-```{r eval=FALSE, echo=TRUE}
-palmerpenguins::penguins %>%
-  ggplot(aes(x = species, y = body_mass_g)) +
-  geom_boxplot(aes(fill = island))               #<<
-```
-
-???
-This slide uses:
-- inline code highlighting with backticks ` `` `
-- a code chunk to produce a ggplot
-
----
-
-```{r penguin-body-mass, eval=TRUE, echo=TRUE, fig.height = 4.5}
-palmerpenguins::penguins %>%
-  ggplot(aes(x = species, y = body_mass_g)) +
-  geom_boxplot(aes(fill = island))               
-```
-
-???
-This slide uses:
-- a code chunk to produce a ggplot
-- code chunk option `fig.height = 4.5` to control the figure height
-
----
 class: middle, inverse, title-slide
 
 .pull-left[
-# Thank you!
 <br/>
-## R-Ladies Global  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+# Obrigada!
+<br/>
 
-### Promoting gender diversity in the R community
 ]
 
 .pull-right[
-.right[
-<img style="border-radius: 50%;"
-src="img/RLadiesGlobal.png"
-width="150px"
-alt="R-Ladies logo"
-/>
 
-[`r fontawesome::fa("link", a11y = "sem", fill = "#FFFFFF")` rladies.org](https://rladies.org)<br/>
-[`r fontawesome::fa("twitter", a11y = "sem", fill = "#FFFFFF")` @RLadiesGlobal](https://twitter.com/rladiesglobal)<br/>
-[`r fontawesome::fa("paper-plane", a11y = "sem", fill = "#FFFFFF")` info@rladies.org](mailto:info@rladies.org)<br>
-[`r fontawesome::fa("slack", a11y = "sem", fill = "#FFFFFF")` Join the Slack](https://rladies-community-slack.herokuapp.com/)
-]]
+### `r rmarkdown::metadata$author`
+
+<img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/11633554?v=4" width="150px"/>
+
+### `r rmarkdown::metadata$role`
+
+### `r rmarkdown::metadata$org`
+
+[`r fontawesome::fa("github")` @Tai-Rocha](https://github.com/Tai-Rocha)    
+[`r fontawesome::fa("twitter")` @Tai_Rocha_](https://twitter.com/Tai_Rocha_)   
+[`r fontawesome::fa("link")` tainaweb-en.netlify.app](https://tainaweb-en.netlify.app/)
+]
+
+
 
 ???
 Thank you for joining me!
