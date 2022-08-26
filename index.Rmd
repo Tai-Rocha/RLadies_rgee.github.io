@@ -53,12 +53,12 @@ This slide uses:
 ---
 # Roteiro
 
-- Google Earth Engine (GEE) : infraestrutra, catálago de dados
+- Google Earth Engine (GEE) : Infraestrutura, catálago de dados
 
-- rgee: fluxo de trabalho, instalções, funções 
+- rgee, o fluxo de trabalho
 
 
-- Estudos de caso: coletando os dados , x, y
+- rgee na prática (R/Rstudio)
 
 ???
 
@@ -84,9 +84,10 @@ knitr::include_url("https://earthengine.google.com/", height = 500)
 
 ???
 
-- O GEE é dos serviçoes do google, é uma plataforma que além de hospedar dados geoespaciais, oferece uma infraesturtura para análise desses dados. 
+- O GEE é dos serviços oferecidos pelo google. É uma plataforma que além de hospedar dados geoespaciais, oferece uma infraesturtura computacional para análise desses dados. 
 - Essa é a página inicial do GEE e você encontra várias informações interessantes,sobre como funciona essa infraestrutura. 
-- E o  grande potencial da plataforma, pelo menos até agora é possibilidade de acessar gratutitamente um serviço de alta pefomance, isso pq além de acessar gratuitamente os dados que estão estão cada vez mais em alta resolução, você consegue realizar análises de alta complexidade que requer poder de processamento. E agora eu volto para os slides.
+- E o  grande potencial da plataforma, pelo menos até agora é possibilidade de acessar gratutitamente um serviço de alta pefomance, gratuito até certo ponto. Além dessa possibilidade de ter um catálago dados. 
+- E só pra explicar/ contextulizar melhor sobre essa necessidade de alta perfomance. Isso acontece pela necessidade de termos dados mais refinadso, com mais informação. E Isso acontece em diferentes áreas. Exmplo da figura 
 - Clicando aqui vocês são direcionados para a página do catálogo de dados, onde você podem acessar os mais diferentes tipos de dados, ou procurar por algum por outros dados. Enfim, é uma das seções que eu mais utilizo.
 
 ---
@@ -145,7 +146,7 @@ knitr::include_graphics("img/wf_rgee.png")
 - Esse aqui é fluxo de trabalho do rgee. E resumidamente, o rgee feito em R, conversa muito bem com os principais pacotes R de análises espaciais , que ele chama aqui de ecossistema espacial R. Mas o rgee consegue também conversar com API Python do Earth Engine, graças ao pacote reticulate, que traduz tudo o que é feito no rgee, que na verdade são requisições feitas no rgee que o reticulate traduz para a API python e API por sua vez transforma essa requisição em um JSON que é o formato aceito aqui na plataforma Earth Engine . 
 
 ---
-### Requistos para o uso do GEE e rgee :
+### Requisitos para o uso do GEE e rgee :
 <br>
 <br>
 
@@ -190,7 +191,7 @@ EarthEngine Python API - Python package*
 
 - [rgee examples](https://csaybar.github.io/rgee-examples/)
 
-- [Código](https://github.com/Tai-Rocha/VI_SER_talk.github.io/blob/main/R/rgee_exemplos.R),estudos de caso
+- [Código](https://github.com/Tai-Rocha/RLadies_rgee.github.io/blob/main/R/rgee_exemplos.R), prática/exemplos 
 ???
  - Nas referências eu deixei vários conteúdos com informações mais detalhadas.
  - E agora eu vou pro R , mostrar um pouco o que dá pra fazer com o rgee.as
@@ -224,8 +225,6 @@ class: middle, inverse, title-slide
 [`r fontawesome::fa("twitter")` @Tai_Rocha_](https://twitter.com/Tai_Rocha_)   
 [`r fontawesome::fa("link")` tainaweb-en.netlify.app](https://tainaweb-en.netlify.app/)
 ]
-
-
 
 ???
 Thank you for joining me!
