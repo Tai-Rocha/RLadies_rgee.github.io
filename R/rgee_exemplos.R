@@ -25,12 +25,24 @@
 
 ## Função para instalação do ambiente virtual Python e suas dependecias:
 
-# rgee::ee_install(py_env = "rgee")
+rgee::ee_install(py_env = "rgee")
 
-# ou:
-# library(rgee)
-# ee_install(py_env = "rgee")
+rgee::ee_clean_pyenv()
 
+# Caso erros acontecem com o comando ee_install(). Segue uma alternativa:
+
+
+ unix_py_path = paste0(
+   "/home/tai-rocha/venv",
+   "rgee/bin/python3"
+ )
+#
+ ee_install_set_pyenv(
+   py_path = unix_py_path,
+   py_env = "rgee"
+ )
+#
+# ee_clean_pyenv()
 
 # Numpy- pacote para manipulação de objetos do tipo array, ex.:matrizes multi-dimensioais;
 # ee - pacote para interagir com a API Python do GEE
@@ -38,21 +50,23 @@
 # Defindo um lugar na sua máquina para istalação da dependecias phtyon
 
 
-#2 Comandos por seção -----------------------------------------------------------
+#2 Comandos obrigatórios por seção -----------------------------------------------------------
 
 library(rgee)
 
-# ou rgee::função
+#rgee::função
 
-# Aconselhável executar a função de check sempre que iniciar uma R/Rstudio session.
 
-rgee::ee_check()
+rgee::ee_check() # Aconselhável executar a função de check sempre que iniciar uma R/Rstudio session.
+
 
 rgee::ee_Initialize() # Obrigatório ao iniciar uma nova R/Rstudio session para usar o rgee
 
 
 # 3 Sintaxe rgee x GEE -----------------------------------------------------------
+rgee::ee_ # para acesssar funções nativas do R
 
+rgee::ee$ # para acessar módulos (função phyton da API py do GEE)
 
 
 # 4 Exemplos e Estudos de casos ------------------------------------------------------------------------
@@ -63,13 +77,25 @@ rgee::ee_Initialize() # Obrigatório ao iniciar uma nova R/Rstudio session para 
 
 ###  Image GEE (Fonte- Catálago de dados do GEE https://developers.google.com/earth-engine/datasets/catalog/AU_GA_DEM_1SEC_v10_DEM-H)
 
-img_elev = rgee::ee$Image("AU/GA/DEM_1SEC/v10/DEM-H")
+library(rgee)
+
+
+img_elev = ee$Image("AU/GA/DEM_1SEC/v10/DEM-H") ## para acessar uma dado do tipo image
+
+class(img_elev)
+
+#image_col = ee$imagecollection()
 
 ### Vendo o conteudo
 
 img_elev$getInfo()
 
 #### Plot / Visualização
+
+#Map$addLayer()
+
+rgee::Map$addLayer(img_elev)
+
 
 rgee::Map$addLayer(img_elev)
 
@@ -148,6 +174,7 @@ landsat2008 = ee$Image("LANDSAT/LE7_TOA_5YEAR/2008_2012")
 
 # Subtração
 
+
 subt = landsat2008$subtract(landsat1999)
 
 Map$addLayer(subt)
@@ -186,7 +213,7 @@ med = landsat2008$add(landsat1999)$divide(2)
 Map$addLayer(med)
 
 
-## Algumas estatítcas de fácil acesso
+## Algumas estatísticas de fácil acesso
 
 ## EX 1 Índice de Vegetação por Diferença Normalizada (NDVI).
 
@@ -194,16 +221,24 @@ Map$addLayer(med)
 
 ndvi2008 = landsat2008$normalizedDifference(c("B4", "B3"))
 
+Map$addLayer(ndvi2008)
+
 ## SQRT
 landsat1999$sqrt
 
 ## Max
 
+max_landsat_1999 = landsat1999$max
+
+Map$addLayer(max_landsat_1999)
+
 ## Min
 
-### Estudos de caso mais elaborados
+min_landsat_1999 = landsat1999$min
 
-# Análise exploratória de dados climáticos (Precipitação), com o objetivo de verificar a tendência dos valores de precipitação ao longo de um determinado ano.
+### Estudos de caso (mais elaborados)
+
+#1 Análise exploratória de dados climáticos (Precipitação), com o objetivo de verificar a tendência dos valores de precipitação ao longo de um determinado ano.
 
 
 # Visualizar essa tendência em um gráfico
@@ -218,6 +253,7 @@ library(tidyr) # manipulação de dataframe
 
 
 # Lendo o dado vetorial - área de estudo
+
 nc_shape <- sf::st_read(system.file("shape/nc.shp", package = "sf"), quiet = TRUE)
 
 # Plotando o dado
@@ -234,7 +270,12 @@ terraclimate <- ee$ImageCollection("IDAHO_EPSCOR/TERRACLIMATE") |>
 ee$ImageCollection()
 
 # Extraindo os valores de precipitação
+
+rgee::ee_extract()
+
 ee_nc_rain <- ee_extract(x = terraclimate, y = nc_shape["NAME"], sf = FALSE)
+
+class(ee_nc_rain)
 
 ## Manipulação do dataframe
 ee_nc_rain |>
@@ -246,7 +287,7 @@ ee_nc_rain |>
   ggplot2::ylab("Precipitation (mm)") +
   ggplot2::theme_minimal()
 
-# Estudo de caso 2: obtendo estatísticas para determinadas áreas
+#2: obtendo estatísticas para áreas predefnidas
 
 library(purrr)
 library(raster)
